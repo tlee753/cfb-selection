@@ -1,0 +1,34 @@
+.sidebar {
+    background-color: black;
+}
+
+.rated_row {
+    font-size: 16px;
+}
+
+.rated_row:hover {
+    background-color: goldenrod;
+}
+
+.schedule_row {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.selected {
+    background-color: darkgoldenrod;
+    outline: none;
+    font-weight: 700;
+}
+
+.won {
+    background-color: seagreen;
+}
+
+.lost {
+    background-color: darkred;
+}
+
+.upcoming {
+    background-color: royalblue;
+}
