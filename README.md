@@ -7,7 +7,13 @@
 - this code is not great and should be re-written, but the application mattered far less to me than experimenting with gtk4
 
 ### Demo
-![Demo](texas-demo.png)
+![Texas](examples/texas-demo.png)
+![Week 12](examples/week-12.png)
+
+<video controls>
+    <source src="examples/pre-conference-championship.mov" type="video/quicktime">
+    Your browser does not support the video tag.
+</video>
 
 ### How to Run
 - simple `cargo run` should do the trick ;)
@@ -29,3 +35,4 @@
     - [ ] add css on scores
 - [ ] add color key
 - [ ] port to windows from linux
+
