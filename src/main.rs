@@ -2,7 +2,6 @@ use iced::widget::{button, column, container, row, scrollable, text, Column};
 use iced::theme::Palette;
 use iced::{Background, Border, Color, Element, Font, Length, Theme};
 use std::collections::HashMap;
-use std::fs::File;
 
 // ───────────────────────── Colors ─────────────────────────
 
@@ -40,88 +39,54 @@ struct Team {
     schedule: Vec<Game>,
 }
 
-// ───────────────────────── CSV loading ─────────────────────────
+// ───────────────────────── Embedded data ─────────────────────────
+// Produced by `cargo run --features fetch --bin fetch_data`, baked into the binary.
 
-/// "(5) Michigan" -> (Some(5), "Michigan"); "Michigan" -> (None, "Michigan")
-fn split_rank(raw: &str) -> (Option<u8>, String) {
-    let raw = raw.trim();
-    if let Some(rest) = raw.strip_prefix('(')
-        && let Some((num, name)) = rest.split_once(')')
-        && let Ok(rank) = num.trim().parse::<u8>()
-    {
-        return (Some(rank), name.trim().to_string());
-    }
-    (None, raw.to_string())
-}
+const TEAMS_CSV: &str = include_str!("../data/teams.csv");
+const GAMES_CSV: &str = include_str!("../data/games.csv");
 
-fn slugify(name: &str) -> String {
-    name.replace('&', "")
-        .trim()
-        .split_whitespace()
-        .collect::<Vec<_>>()
-        .join("-")
-        .to_lowercase()
-}
-
-fn read_csv(path: &str) -> Vec<csv::StringRecord> {
-    let Ok(file) = File::open(path) else {
-        eprintln!("Couldn't open {path}");
-        return Vec::new();
-    };
+fn read_csv(data: &str) -> Vec<csv::StringRecord> {
     csv::ReaderBuilder::new()
         .has_headers(true)
-        .from_reader(file)
+        .from_reader(data.as_bytes())
         .records()
         .filter_map(Result::ok)
         .collect()
 }
 
-fn load_schedule(slug: &str) -> Vec<Game> {
-    read_csv(&format!("data/{slug}.csv"))
-        .iter()
-        .map(|rec| {
-            let field = |i: usize| rec.get(i).unwrap_or("").trim().to_string();
-            let (opp_rank, opp_name) = split_rank(&field(6));
-
-            Game {
-                opp_slug: slugify(&opp_name),
-                opp_name,
-                opp_rank,
-                date: field(1),
-                home: field(5) != "@",
-                outcome: match field(8).as_str() {
-                    "W" => Outcome::Won,
-                    "L" => Outcome::Lost,
-                    _ => Outcome::Upcoming,
-                },
-                score: field(9),
-                opp_score: field(10),
-            }
-        })
-        .collect()
-}
-
 fn load_teams() -> Vec<Team> {
-    let mut teams: Vec<Team> = read_csv("data/ap.csv")
+    // games.csv: team,date,site,opp_slug,opp_name,opp_rank,result,score,opp_score
+    let mut schedules: HashMap<String, Vec<Game>> = HashMap::new();
+    for rec in read_csv(GAMES_CSV) {
+        let field = |i: usize| rec.get(i).unwrap_or("").trim();
+        let game = Game {
+            date: field(1).to_string(),
+            home: field(2) != "@",
+            opp_slug: field(3).to_string(),
+            opp_name: field(4).to_string(),
+            opp_rank: field(5).parse().ok(),
+            outcome: match field(6) {
+                "W" => Outcome::Won,
+                "L" => Outcome::Lost,
+                _ => Outcome::Upcoming,
+            },
+            score: field(7).to_string(),
+            opp_score: field(8).to_string(),
+        };
+        schedules.entry(field(0).to_string()).or_default().push(game);
+    }
+
+    // teams.csv: rank,slug,name,record
+    let mut teams: Vec<Team> = read_csv(TEAMS_CSV)
         .iter()
         .filter_map(|rec| {
-            let rank = rec.get(2)?.trim().parse::<u8>().ok()?;
-            let raw = rec.get(3)?;
-
-            // "Ohio State (62) (12-0)" -> name "Ohio State", record "(12-0)"
-            let name = raw.split('(').next().unwrap_or(raw).trim().to_string();
-            let record = raw
-                .rsplit_once('(')
-                .map(|(_, r)| format!("({r}"))
-                .unwrap_or_default();
-            let slug = slugify(&name);
-
+            let slug = rec.get(1)?.to_string();
             Some(Team {
-                schedule: load_schedule(&slug),
+                rank: rec.get(0)?.trim().parse().ok()?,
+                name: rec.get(2)?.to_string(),
+                record: rec.get(3).unwrap_or("").to_string(),
+                schedule: schedules.remove(&slug).unwrap_or_default(),
                 slug,
-                name,
-                rank,
-                record,
             })
         })
         .collect();
@@ -160,7 +125,7 @@ impl App {
 
     fn view(&self) -> Element<'_, Message> {
         let Some(selected) = self.teams.get(self.selected) else {
-            return container(text("No teams found. Check data/ap.csv"))
+            return container(text("No data yet. Run: cargo run --features fetch --bin fetch_data"))
                 .center(Length::Fill)
                 .into();
         };
