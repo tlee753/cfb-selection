@@ -1,5 +1,6 @@
 use iced::widget::{button, column, container, row, scrollable, text, Column};
-use iced::{Background, Border, Color, Element, Length, Theme};
+use iced::theme::Palette;
+use iced::{Background, Border, Color, Element, Font, Length, Theme};
 use std::collections::HashMap;
 use std::fs::File;
 
@@ -188,7 +189,7 @@ impl App {
             let label = row![
                 text(team.rank.to_string()).width(28),
                 text(&team.name).width(Length::Fill),
-                text(&team.record).size(13),
+                text(&team.record),
             ]
             .spacing(6);
 
@@ -207,7 +208,6 @@ impl App {
         let header = column![
             text(format!("#{} {}", selected.rank, selected.name)).size(28),
             text(&selected.record).size(16),
-            text("Win · Loss · Upcoming ranked matchup").size(12),
         ]
         .spacing(4);
 
@@ -298,10 +298,22 @@ fn team_button_style(tint: Option<Color>, selected: bool, status: button::Status
 
 // ───────────────────────── Entry point ─────────────────────────
 
+fn black_theme() -> Theme {
+    Theme::custom(
+        "Black",
+        Palette {
+            background: Color::BLACK,
+            ..Palette::DARK
+        },
+    )
+}
+
 fn main() -> iced::Result {
     iced::application(App::default, App::update, App::view)
         .title("CFB Selection")
-        .theme(|_: &App| Theme::Dark)
+        .font(include_bytes!("lexend.ttf").as_slice())
+        .default_font(Font::with_name("Lexend"))
+        .theme(|_: &App| black_theme())
         .window_size((1000.0, 900.0))
         .run()
 }
