@@ -7,16 +7,6 @@ default-run = "cfb-selection"
 [dependencies]
 iced = "0.14"
 csv = "1"
-reqwest = { version = "0.12", default-features = false, features = ["blocking", "rustls-tls"], optional = true }
-scraper = { version = "0.23", optional = true }
-
-[features]
-fetch = ["dep:reqwest", "dep:scraper"]
-
-[[bin]]
-name = "fetch_data"
-path = "src/bin/fetch_data.rs"
-required-features = ["fetch"]
 
 [target.x86_64-pc-windows-gnu]
 linker = "x86_64-w64-mingw32-gcc"

@@ -42,7 +42,8 @@ struct Team {
 // ───────────────────────── Embedded data ─────────────────────────
 // Produced by `cargo run --features fetch --bin fetch_data`, baked into the binary.
 
-const TEAMS_CSV: &str = include_str!("../data/teams.csv");
+const AP_CSV: &str = include_str!("../data/ap.csv");
+const CFP_CSV: &str = include_str!("../data/cfp.csv");
 const GAMES_CSV: &str = include_str!("../data/games.csv");
 
 fn read_csv(data: &str) -> Vec<csv::StringRecord> {
@@ -54,7 +55,7 @@ fn read_csv(data: &str) -> Vec<csv::StringRecord> {
         .collect()
 }
 
-fn load_teams() -> Vec<Team> {
+fn load_schedules() -> HashMap<String, Vec<Game>> {
     // games.csv: team,date,site,opp_slug,opp_name,opp_rank,result,score,opp_score
     let mut schedules: HashMap<String, Vec<Game>> = HashMap::new();
     for rec in read_csv(GAMES_CSV) {
@@ -75,9 +76,12 @@ fn load_teams() -> Vec<Team> {
         };
         schedules.entry(field(0).to_string()).or_default().push(game);
     }
+    schedules
+}
 
-    // teams.csv: rank,slug,name,record
-    let mut teams: Vec<Team> = read_csv(TEAMS_CSV)
+/// ap.csv / cfp.csv: rank,slug,name,record
+fn load_teams(csv: &str, schedules: &HashMap<String, Vec<Game>>) -> Vec<Team> {
+    let mut teams: Vec<Team> = read_csv(csv)
         .iter()
         .filter_map(|rec| {
             let slug = rec.get(1)?.to_string();
@@ -85,7 +89,7 @@ fn load_teams() -> Vec<Team> {
                 rank: rec.get(0)?.trim().parse().ok()?,
                 name: rec.get(2)?.to_string(),
                 record: rec.get(3).unwrap_or("").to_string(),
-                schedule: schedules.remove(&slug).unwrap_or_default(),
+                schedule: schedules.get(&slug).cloned().unwrap_or_default(),
                 slug,
             })
         })
@@ -97,15 +101,26 @@ fn load_teams() -> Vec<Team> {
 
 // ───────────────────────── App ─────────────────────────
 
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+enum Poll {
+    Ap,
+    Cfp,
+}
+
 struct App {
-    teams: Vec<Team>,
+    ap: Vec<Team>,
+    cfp: Vec<Team>,
+    poll: Poll,
     selected: usize,
 }
 
 impl Default for App {
     fn default() -> Self {
+        let schedules = load_schedules();
         Self {
-            teams: load_teams(),
+            ap: load_teams(AP_CSV, &schedules),
+            cfp: load_teams(CFP_CSV, &schedules),
+            poll: Poll::Ap,
             selected: 0, // #1 team
         }
     }
@@ -114,17 +129,30 @@ impl Default for App {
 #[derive(Debug, Clone)]
 enum Message {
     Select(usize),
+    SetPoll(Poll),
 }
 
 impl App {
+    fn teams(&self) -> &[Team] {
+        match self.poll {
+            Poll::Ap => &self.ap,
+            Poll::Cfp => &self.cfp,
+        }
+    }
+
     fn update(&mut self, message: Message) {
         match message {
             Message::Select(i) => self.selected = i,
+            Message::SetPoll(poll) => {
+                self.poll = poll;
+                self.selected = 0;
+            }
         }
     }
 
     fn view(&self) -> Element<'_, Message> {
-        let Some(selected) = self.teams.get(self.selected) else {
+        let teams = self.teams();
+        let Some(selected) = teams.get(self.selected) else {
             return container(text("No data yet. Run: cargo run --features fetch --bin fetch_data"))
                 .center(Length::Fill)
                 .into();
@@ -139,7 +167,7 @@ impl App {
 
         // ── Left: top 25 ──
         let mut rankings = Column::new().spacing(4).padding(8);
-        for (i, team) in self.teams.iter().enumerate() {
+        for (i, team) in teams.iter().enumerate() {
             let is_selected = i == self.selected;
             let tint = if is_selected {
                 None
@@ -167,7 +195,21 @@ impl App {
             );
         }
 
-        let sidebar = container(scrollable(rankings)).width(320).height(Length::Fill);
+        let poll_button = |label: &'static str, poll: Poll| {
+            let active = self.poll == poll;
+            button(text(label).width(Length::Fill).align_x(iced::alignment::Horizontal::Center))
+                .width(Length::Fill)
+                .padding([8, 10])
+                .on_press(Message::SetPoll(poll))
+                .style(move |_theme, status| team_button_style(None, active, status))
+        };
+        let toggle = row![poll_button("AP", Poll::Ap), poll_button("CFP", Poll::Cfp)]
+            .spacing(4)
+            .padding([8, 8]);
+
+        let sidebar = container(column![toggle, scrollable(rankings).height(Length::Fill)])
+            .width(320)
+            .height(Length::Fill);
 
         // ── Right: selected team's schedule ──
         let header = column![
