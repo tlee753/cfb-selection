@@ -36,3 +36,7 @@
 - [ ] add color key
 - [ ] port to windows from linux
 
+### Windows Cross Compilation
+```bash
+cargo build --target x86_64-pc-windows-gnu --release
+```
