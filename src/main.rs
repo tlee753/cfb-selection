@@ -1,3 +1,5 @@
+#![windows_subsystem = "windows"]
+
 use iced::widget::{button, column, container, row, scrollable, text, Column};
 use iced::theme::Palette;
 use iced::{Background, Border, Color, Element, Font, Length, Theme};
