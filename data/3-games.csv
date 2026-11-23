@@ -1,0 +1,325 @@
+team,date,site,opp_slug,opp_name,opp_rank,result,score,opp_score
+georgia,Sep 5 2026,,tennessee-state,Tennessee State,,W,63,3
+georgia,Sep 12 2026,,western-kentucky,Western Kentucky,,W,70,20
+georgia,Sep 19 2026,@,arkansas,Arkansas,,W,45,17
+georgia,Sep 26 2026,,oklahoma,Oklahoma,,W,41,13
+georgia,Oct 3 2026,,vanderbilt,Vanderbilt,,W,38,14
+georgia,Oct 10 2026,@,alabama,Alabama,6,W,20,17
+georgia,Oct 17 2026,,auburn,Auburn,,L,24,27
+georgia,Oct 31 2026,N,florida,Florida,17,W,27,8
+georgia,Nov 7 2026,@,ole-miss,Ole Miss,12,W,42,7
+georgia,Nov 14 2026,,missouri,Missouri,,W,48,21
+georgia,Nov 21 2026,@,south-carolina,South Carolina,,W,34,6
+georgia,Nov 28 2026,,georgia-tech,Georgia Tech,,,,
+utah,Sep 3 2026,,idaho,Idaho,,W,66,14
+utah,Sep 12 2026,,arkansas,Arkansas,,W,43,10
+utah,Sep 19 2026,,utah-state,Utah State,,W,33,0
+utah,Sep 26 2026,@,iowa-state,Iowa State,,W,31,17
+utah,Oct 10 2026,,kansas,Kansas,,W,41,24
+utah,Oct 17 2026,@,colorado,Colorado,,W,27,24
+utah,Oct 24 2026,,houston,Houston,14,W,21,13
+utah,Oct 31 2026,@,cincinnati,Cincinnati,,W,49,25
+utah,Nov 7 2026,,byu,BYU,7,W,28,20
+utah,Nov 14 2026,@,arizona,Arizona,22,W,40,39
+utah,Nov 21 2026,@,tcu,Texas Christian,,W,38,17
+utah,Nov 27 2026,,west-virginia,West Virginia,,,,
+alabama,Sep 5 2026,,east-carolina,East Carolina,,W,48,10
+alabama,Sep 12 2026,@,kentucky,Kentucky,,W,45,17
+alabama,Sep 19 2026,,florida-state,Florida State,,W,50,36
+alabama,Sep 26 2026,,south-carolina,South Carolina,,W,49,18
+alabama,Oct 3 2026,@,mississippi-state,Mississippi State,16,W,56,23
+alabama,Oct 10 2026,,georgia,Georgia,2,L,17,20
+alabama,Oct 17 2026,@,tennessee,Tennessee,14,L,10,26
+alabama,Oct 24 2026,,texas-am,Texas A&M,,W,31,20
+alabama,Nov 7 2026,@,lsu,LSU,15,W,31,13
+alabama,Nov 14 2026,@,vanderbilt,Vanderbilt,,W,21,6
+alabama,Nov 21 2026,,chattanooga,Chattanooga,,W,47,0
+alabama,Nov 28 2026,,auburn,Auburn,,,,
+ucla,Sep 5 2026,@,california,California,,W,45,24
+ucla,Sep 12 2026,,san-diego-state,San Diego State,,W,28,10
+ucla,Sep 19 2026,,purdue,Purdue,,W,52,38
+ucla,Sep 26 2026,@,maryland,Maryland,,W,54,3
+ucla,Oct 10 2026,@,oregon,Oregon,13,W,17,15
+ucla,Oct 17 2026,,wisconsin,Wisconsin,,W,17,7
+ucla,Oct 24 2026,,michigan-state,Michigan State,,W,28,10
+ucla,Oct 31 2026,,nevada,Nevada,,W,27,0
+ucla,Nov 7 2026,@,minnesota,Minnesota,,W,34,20
+ucla,Nov 13 2026,,illinois,Illinois,,W,22,14
+ucla,Nov 21 2026,@,michigan,Michigan,,L,16,18
+ucla,Nov 28 2026,,usc,USC,15,,,
+texas,Sep 5 2026,,texas-state,Texas State,,W,59,7
+texas,Sep 12 2026,,ohio-state,Ohio State,1,W,24,23
+texas,Sep 19 2026,,utsa,UTSA,,W,30,6
+texas,Sep 26 2026,@,tennessee,Tennessee,14,W,20,17
+texas,Oct 10 2026,N,oklahoma,Oklahoma,,L,24,27
+texas,Oct 17 2026,,florida,Florida,,L,24,27
+texas,Oct 24 2026,,ole-miss,Ole Miss,7,W,34,27
+texas,Oct 31 2026,,mississippi-state,Mississippi State,,W,31,3
+texas,Nov 7 2026,@,missouri,Missouri,19,W,34,20
+texas,Nov 14 2026,@,lsu,LSU,24,W,22,21
+texas,Nov 21 2026,,arkansas,Arkansas,,W,45,3
+texas,Nov 27 2026,@,texas-am,Texas A&M,,,,
+notre-dame,Sep 6 2026,N,wisconsin,Wisconsin,,W,41,13
+notre-dame,Sep 12 2026,,rice,Rice,,W,52,0
+notre-dame,Sep 19 2026,,michigan-state,Michigan State,,W,27,10
+notre-dame,Sep 26 2026,@,purdue,Purdue,,W,49,10
+notre-dame,Oct 3 2026,@,north-carolina,North Carolina,,W,37,26
+notre-dame,Oct 10 2026,,stanford,Stanford,,W,58,7
+notre-dame,Oct 17 2026,@,byu,BYU,8,L,24,28
+notre-dame,Oct 31 2026,N,navy,Navy,,W,35,13
+notre-dame,Nov 7 2026,,miami-fl,Miami (FL),1,W,31,24
+notre-dame,Nov 14 2026,,boston-college,Boston College,,W,41,7
+notre-dame,Nov 21 2026,,smu,SMU,,W,24,3
+notre-dame,Nov 28 2026,@,syracuse,Syracuse,,,,
+miami-fl,Sep 4 2026,@,stanford,Stanford,,W,45,6
+miami-fl,Sep 10 2026,,florida-am,Florida A&M,,W,77,7
+miami-fl,Sep 18 2026,@,wake-forest,Wake Forest,,W,33,20
+miami-fl,Sep 26 2026,,central-michigan,Central Michigan,,W,52,3
+miami-fl,Oct 3 2026,@,clemson,Clemson,,W,41,13
+miami-fl,Oct 17 2026,,florida-state,Florida State,,W,43,35
+miami-fl,Oct 24 2026,,pitt,Pitt,,W,52,23
+miami-fl,Oct 31 2026,@,north-carolina,North Carolina,,W,38,35
+miami-fl,Nov 7 2026,@,notre-dame,Notre Dame,4,L,24,31
+miami-fl,Nov 14 2026,,duke,Duke,,W,36,25
+miami-fl,Nov 21 2026,,virginia-tech,Virginia Tech,,W,28,20
+miami-fl,Nov 28 2026,,boston-college,Boston College,,,,
+indiana,Sep 5 2026,,north-texas,North Texas,,W,52,16
+indiana,Sep 12 2026,,howard,Howard,,W,55,0
+indiana,Sep 19 2026,,western-kentucky,Western Kentucky,,W,38,0
+indiana,Sep 25 2026,,northwestern,Northwestern,,W,29,23
+indiana,Oct 3 2026,@,rutgers,Rutgers,,W,47,15
+indiana,Oct 10 2026,@,nebraska,Nebraska,,W,20,17
+indiana,Oct 17 2026,,ohio-state,Ohio State,4,L,15,19
+indiana,Oct 24 2026,@,michigan,Michigan,,W,13,6
+indiana,Oct 31 2026,,minnesota,Minnesota,,W,23,16
+indiana,Nov 14 2026,,usc,USC,15,W,27,13
+indiana,Nov 21 2026,@,washington,Washington,,L,24,27
+indiana,Nov 28 2026,,purdue,Purdue,,,,
+tennessee,Sep 5 2026,,furman,Furman,,W,56,9
+tennessee,Sep 12 2026,@,georgia-tech,Georgia Tech,,W,45,24
+tennessee,Sep 19 2026,,kennesaw-state,Kennesaw State,,W,42,9
+tennessee,Sep 26 2026,,texas,Texas,1,L,17,20
+tennessee,Oct 3 2026,,auburn,Auburn,,W,24,14
+tennessee,Oct 10 2026,@,arkansas,Arkansas,,W,24,17
+tennessee,Oct 17 2026,,alabama,Alabama,6,W,26,10
+tennessee,Oct 24 2026,@,south-carolina,South Carolina,,L,24,27
+tennessee,Nov 7 2026,,kentucky,Kentucky,8,W,34,6
+tennessee,Nov 14 2026,@,texas-am,Texas A&M,,W,22,7
+tennessee,Nov 21 2026,,lsu,LSU,,W,27,13
+tennessee,Nov 28 2026,@,vanderbilt,Vanderbilt,,,,
+byu,Sep 5 2026,,utah-tech,Utah Tech,,W,63,7
+byu,Sep 12 2026,,arizona,Arizona,,W,28,17
+byu,Sep 19 2026,@,colorado-state,Colorado State,,W,41,23
+byu,Oct 3 2026,@,tcu,Texas Christian,,W,17,10
+byu,Oct 9 2026,,iowa-state,Iowa State,,W,24,10
+byu,Oct 17 2026,,notre-dame,Notre Dame,2,W,28,24
+byu,Oct 24 2026,@,ucf,UCF,,L,31,39
+byu,Oct 31 2026,,arizona-state,Arizona State,,W,27,20
+byu,Nov 7 2026,@,utah,Utah,3,L,20,28
+byu,Nov 14 2026,,baylor,Baylor,,W,28,7
+byu,Nov 21 2026,@,kansas,Kansas,,W,31,29
+byu,Nov 28 2026,,cincinnati,Cincinnati,,,,
+wake-forest,Sep 3 2026,,akron,Akron,,W,38,16
+wake-forest,Sep 12 2026,@,purdue,Purdue,,W,38,36
+wake-forest,Sep 18 2026,,miami-fl,Miami (FL),5,L,20,33
+wake-forest,Sep 26 2026,@,louisville,Louisville,16,W,30,27
+wake-forest,Oct 3 2026,,stanford,Stanford,,W,57,3
+wake-forest,Oct 10 2026,@,north-carolina-state,North Carolina State,,W,38,14
+wake-forest,Oct 17 2026,@,california,California,,W,41,7
+wake-forest,Oct 31 2026,,virginia,Virginia,,W,51,7
+wake-forest,Nov 7 2026,,merrimack,Merrimack,,W,77,0
+wake-forest,Nov 14 2026,@,smu,SMU,25,W,49,7
+wake-forest,Nov 21 2026,@,georgia-tech,Georgia Tech,,W,50,29
+wake-forest,Nov 28 2026,,duke,Duke,,,,
+texas-tech,Sep 5 2026,,abilene-christian,Abilene Christian,,W,33,10
+texas-tech,Sep 12 2026,@,oregon-state,Oregon State,,W,35,24
+texas-tech,Sep 18 2026,,houston,Houston,22,W,28,26
+texas-tech,Sep 26 2026,,sam-houston,Sam Houston,,W,49,14
+texas-tech,Oct 3 2026,@,colorado,Colorado,,W,29,7
+texas-tech,Oct 17 2026,,arizona-state,Arizona State,,W,53,25
+texas-tech,Oct 24 2026,@,cincinnati,Cincinnati,,L,24,37
+texas-tech,Oct 31 2026,,arizona,Arizona,22,W,34,26
+texas-tech,Nov 7 2026,,west-virginia,West Virginia,,W,53,48
+texas-tech,Nov 14 2026,@,oklahoma-state,Oklahoma State,,W,52,27
+texas-tech,Nov 21 2026,@,baylor,Baylor,,W,20,10
+texas-tech,Nov 26 2026,,tcu,Texas Christian,,,,
+oregon,Sep 5 2026,,boise-state,Boise State,,W,34,27
+oregon,Sep 12 2026,@,oklahoma-state,Oklahoma State,,L,31,39
+oregon,Sep 18 2026,,portland-state,Portland State,,W,84,0
+oregon,Sep 26 2026,@,usc,USC,12,W,41,27
+oregon,Oct 10 2026,,ucla,UCLA,21,L,15,17
+oregon,Oct 17 2026,,nebraska,Nebraska,,W,17,14
+oregon,Oct 24 2026,@,illinois,Illinois,,L,10,21
+oregon,Oct 31 2026,,northwestern,Northwestern,20,W,34,26
+oregon,Nov 7 2026,@,ohio-state,Ohio State,11,W,41,28
+oregon,Nov 14 2026,,michigan,Michigan,,W,31,7
+oregon,Nov 20 2026,@,michigan-state,Michigan State,,W,45,7
+oregon,Nov 28 2026,,washington,Washington,,,,
+ohio-state,Sep 5 2026,,ball-state,Ball State,,W,56,3
+ohio-state,Sep 12 2026,@,texas,Texas,4,L,23,24
+ohio-state,Sep 19 2026,,kent-state,Kent State,,W,59,3
+ohio-state,Sep 26 2026,,illinois,Illinois,,W,42,19
+ohio-state,Oct 3 2026,@,iowa,Iowa,14,W,31,14
+ohio-state,Oct 10 2026,,maryland,Maryland,,W,45,16
+ohio-state,Oct 17 2026,@,indiana,Indiana,5,W,19,15
+ohio-state,Oct 31 2026,@,usc,USC,,L,18,30
+ohio-state,Nov 7 2026,,oregon,Oregon,,L,28,41
+ohio-state,Nov 14 2026,,northwestern,Northwestern,,W,28,19
+ohio-state,Nov 21 2026,@,nebraska,Nebraska,,L,28,31
+ohio-state,Nov 28 2026,,michigan,Michigan,,,,
+iowa,Sep 5 2026,,northern-illinois,Northern Illinois,,W,40,0
+iowa,Sep 12 2026,,iowa-state,Iowa State,,W,16,13
+iowa,Sep 19 2026,,northern-iowa,Northern Iowa,,W,55,0
+iowa,Sep 26 2026,@,michigan,Michigan,18,W,20,19
+iowa,Oct 3 2026,,ohio-state,Ohio State,5,L,14,31
+iowa,Oct 9 2026,@,washington,Washington,,W,41,24
+iowa,Oct 24 2026,@,minnesota,Minnesota,,L,10,13
+iowa,Oct 31 2026,,wisconsin,Wisconsin,25,W,30,0
+iowa,Nov 7 2026,@,northwestern,Northwestern,,W,24,10
+iowa,Nov 14 2026,,purdue,Purdue,,W,28,7
+iowa,Nov 21 2026,@,illinois,Illinois,,W,34,17
+iowa,Nov 27 2026,,nebraska,Nebraska,,,,
+kentucky,Sep 5 2026,,youngstown-state,Youngstown State,,W,45,13
+kentucky,Sep 12 2026,,alabama,Alabama,12,L,17,45
+kentucky,Sep 19 2026,@,texas-am,Texas A&M,9,W,31,21
+kentucky,Sep 26 2026,,south-alabama,South Alabama,,W,45,21
+kentucky,Oct 3 2026,@,south-carolina,South Carolina,,W,35,34
+kentucky,Oct 10 2026,,lsu,LSU,10,W,35,34
+kentucky,Oct 17 2026,@,oklahoma,Oklahoma,,W,21,13
+kentucky,Oct 24 2026,,vanderbilt,Vanderbilt,,W,34,17
+kentucky,Nov 7 2026,@,tennessee,Tennessee,16,L,6,34
+kentucky,Nov 14 2026,,florida,Florida,,L,14,21
+kentucky,Nov 21 2026,@,missouri,Missouri,,L,14,28
+kentucky,Nov 28 2026,,louisville,Louisville,18,,,
+boise-state,Sep 5 2026,@,oregon,Oregon,2,L,27,34
+boise-state,Sep 12 2026,,memphis,Memphis,,W,38,20
+boise-state,Sep 19 2026,,south-dakota,South Dakota,,W,38,24
+boise-state,Sep 26 2026,@,western-michigan,Western Michigan,,W,32,7
+boise-state,Oct 3 2026,,utah-state,Utah State,,W,37,18
+boise-state,Oct 10 2026,@,fresno-state,Fresno State,,W,38,31
+boise-state,Oct 24 2026,@,washington-state,Washington State,,W,31,10
+boise-state,Oct 31 2026,,texas-state,Texas State,,W,46,45
+boise-state,Nov 7 2026,@,colorado-state,Colorado State,,W,64,38
+boise-state,Nov 14 2026,,oregon-state,Oregon State,,W,46,41
+boise-state,Nov 21 2026,,san-diego-state,San Diego State,,L,20,22
+boise-state,Nov 28 2026,@,colorado-state,Colorado State,,,,
+usc,Aug 29 2026,,san-jose-state,San Jose State,,W,42,26
+usc,Sep 4 2026,,fresno-state,Fresno State,,W,39,0
+usc,Sep 12 2026,,louisiana,Louisiana,,W,49,30
+usc,Sep 19 2026,@,rutgers,Rutgers,,W,42,35
+usc,Sep 26 2026,,oregon,Oregon,20,L,27,41
+usc,Oct 3 2026,,washington,Washington,,W,25,21
+usc,Oct 10 2026,@,penn-state,Penn State,,W,31,23
+usc,Oct 24 2026,@,wisconsin,Wisconsin,,L,7,24
+usc,Oct 31 2026,,ohio-state,Ohio State,2,W,30,18
+usc,Nov 14 2026,@,indiana,Indiana,6,L,13,27
+usc,Nov 21 2026,,maryland,Maryland,,W,35,21
+usc,Nov 28 2026,@,ucla,UCLA,10,,,
+arizona,Sep 5 2026,,northern-arizona,Northern Arizona,,W,35,7
+arizona,Sep 12 2026,@,byu,BYU,15,L,17,28
+arizona,Sep 19 2026,,northern-illinois,Northern Illinois,,W,42,17
+arizona,Sep 26 2026,@,washington-state,Washington State,,W,34,24
+arizona,Oct 3 2026,,cincinnati,Cincinnati,,W,34,7
+arizona,Oct 10 2026,@,west-virginia,West Virginia,,W,52,31
+arizona,Oct 24 2026,,iowa-state,Iowa State,,W,39,3
+arizona,Oct 31 2026,@,texas-tech,Texas Tech,13,L,26,34
+arizona,Nov 6 2026,,tcu,Texas Christian,,W,29,28
+arizona,Nov 14 2026,,utah,Utah,2,L,39,40
+arizona,Nov 21 2026,@,kansas-state,Kansas State,,W,35,28
+arizona,Nov 28 2026,,arizona-state,Arizona State,,,,
+houston,Sep 5 2026,,oregon-state,Oregon State,,W,33,20
+houston,Sep 12 2026,,southern,Southern,,W,77,6
+houston,Sep 18 2026,@,texas-tech,Texas Tech,13,L,26,28
+houston,Sep 26 2026,@,georgia-southern,Georgia Southern,,W,42,28
+houston,Oct 3 2026,,ucf,UCF,,W,27,17
+houston,Oct 10 2026,@,kansas-state,Kansas State,,W,35,16
+houston,Oct 17 2026,,oklahoma-state,Oklahoma State,18,W,35,32
+houston,Oct 24 2026,@,utah,Utah,10,L,13,21
+houston,Nov 7 2026,,cincinnati,Cincinnati,,W,31,24
+houston,Nov 13 2026,@,colorado,Colorado,,L,32,42
+houston,Nov 21 2026,@,west-virginia,West Virginia,,W,34,31
+houston,Nov 28 2026,,baylor,Baylor,,,,
+south-carolina,Sep 5 2026,,kent-state,Kent State,,W,57,0
+south-carolina,Sep 12 2026,,towson,Towson,,W,45,9
+south-carolina,Sep 19 2026,,mississippi-state,Mississippi State,,L,34,41
+south-carolina,Sep 26 2026,@,alabama,Alabama,8,L,18,49
+south-carolina,Oct 3 2026,,kentucky,Kentucky,24,L,34,35
+south-carolina,Oct 10 2026,@,florida,Florida,16,W,38,19
+south-carolina,Oct 24 2026,,tennessee,Tennessee,11,W,27,24
+south-carolina,Oct 31 2026,@,oklahoma,Oklahoma,,W,42,25
+south-carolina,Nov 7 2026,,texas-am,Texas A&M,,W,17,9
+south-carolina,Nov 14 2026,@,arkansas,Arkansas,,L,6,34
+south-carolina,Nov 21 2026,,georgia,Georgia,1,L,6,34
+south-carolina,Nov 28 2026,@,clemson,Clemson,,,,
+oklahoma,Sep 4 2026,,utep,UTEP,,W,51,0
+oklahoma,Sep 12 2026,@,michigan,Michigan,,L,10,17
+oklahoma,Sep 19 2026,,new-mexico,New Mexico,,W,14,6
+oklahoma,Sep 26 2026,@,georgia,Georgia,2,L,13,41
+oklahoma,Oct 10 2026,N,texas,Texas,1,W,27,24
+oklahoma,Oct 17 2026,,kentucky,Kentucky,15,L,13,21
+oklahoma,Oct 24 2026,@,mississippi-state,Mississippi State,,W,23,15
+oklahoma,Oct 31 2026,,south-carolina,South Carolina,,L,25,42
+oklahoma,Nov 7 2026,@,florida,Florida,25,W,23,7
+oklahoma,Nov 15 2026,,ole-miss,Ole Miss,19,W,24,17
+oklahoma,Nov 21 2026,,texas-am,Texas A&M,,W,28,7
+oklahoma,Nov 28 2026,@,missouri,Missouri,24,,,
+louisville,Sep 6 2026,N,ole-miss,Ole Miss,9,L,38,41
+louisville,Sep 11 2026,,villanova,Villanova,,W,59,13
+louisville,Sep 19 2026,,smu,SMU,16,W,41,31
+louisville,Sep 26 2026,,wake-forest,Wake Forest,,L,27,30
+louisville,Oct 3 2026,@,north-carolina-state,North Carolina State,,L,28,31
+louisville,Oct 9 2026,,florida-state,Florida State,,W,44,20
+louisville,Oct 17 2026,@,syracuse,Syracuse,,W,34,26
+louisville,Oct 31 2026,,stanford,Stanford,,W,52,24
+louisville,Nov 7 2026,@,georgia-tech,Georgia Tech,,W,44,17
+louisville,Nov 14 2026,@,north-carolina,North Carolina,,W,16,14
+louisville,Nov 21 2026,,pitt,Pitt,,W,42,10
+louisville,Nov 28 2026,@,kentucky,Kentucky,,,,
+florida,Sep 5 2026,,florida-atlantic,Florida Atlantic,,W,66,21
+florida,Sep 12 2026,,campbell,Campbell,,W,52,3
+florida,Sep 19 2026,@,auburn,Auburn,,W,44,39
+florida,Sep 26 2026,,ole-miss,Ole Miss,4,W,52,28
+florida,Oct 3 2026,@,missouri,Missouri,25,L,17,45
+florida,Oct 10 2026,,south-carolina,South Carolina,,L,19,38
+florida,Oct 17 2026,@,texas,Texas,7,W,27,24
+florida,Oct 31 2026,N,georgia,Georgia,3,L,8,27
+florida,Nov 7 2026,,oklahoma,Oklahoma,,L,7,23
+florida,Nov 14 2026,@,kentucky,Kentucky,13,W,21,14
+florida,Nov 21 2026,,vanderbilt,Vanderbilt,,W,34,27
+florida,Nov 27 2026,@,florida-state,Florida State,,,,
+ole-miss,Sep 6 2026,N,louisville,Louisville,24,W,41,38
+ole-miss,Sep 12 2026,,charlotte,Charlotte,,W,41,9
+ole-miss,Sep 19 2026,,lsu,LSU,7,W,32,24
+ole-miss,Sep 26 2026,@,florida,Florida,21,L,28,52
+ole-miss,Oct 10 2026,@,vanderbilt,Vanderbilt,,W,52,17
+ole-miss,Oct 17 2026,,missouri,Missouri,13,W,31,3
+ole-miss,Oct 24 2026,@,texas,Texas,19,L,27,34
+ole-miss,Oct 31 2026,,auburn,Auburn,,W,45,15
+ole-miss,Nov 7 2026,,georgia,Georgia,2,L,7,42
+ole-miss,Nov 15 2026,@,oklahoma,Oklahoma,,L,17,24
+ole-miss,Nov 21 2026,,wofford,Wofford,,W,59,17
+ole-miss,Nov 27 2026,,mississippi-state,Mississippi State,,,,
+liberty,Sep 5 2026,@,james-madison,James Madison,,L,13,20
+liberty,Sep 12 2026,,gardner-webb,Gardner-Webb,,W,24,23
+liberty,Sep 19 2026,,ball-state,Ball State,,W,51,15
+liberty,Sep 24 2026,@,coastal-carolina,Coastal Carolina,,W,34,17
+liberty,Oct 2 2026,@,delaware,Delaware,,W,30,14
+liberty,Oct 8 2026,,sam-houston,Sam Houston,,W,35,3
+liberty,Oct 22 2026,@,kennesaw-state,Kennesaw State,,W,34,6
+liberty,Oct 31 2026,,florida-international,Florida International,,W,49,10
+liberty,Nov 7 2026,@,new-mexico-state,New Mexico State,,W,30,14
+liberty,Nov 14 2026,,middle-tennessee-state,Middle Tennessee State,,W,28,23
+liberty,Nov 21 2026,,western-kentucky,Western Kentucky,,W,45,14
+liberty,Nov 28 2026,@,missouri-state,Missouri State,,,,
+missouri,Sep 3 2026,,arkansas-pine-bluff,Arkansas-Pine Bluff,,W,54,14
+missouri,Sep 11 2026,@,kansas,Kansas,,W,38,21
+missouri,Sep 19 2026,,troy,Troy,,W,27,17
+missouri,Sep 26 2026,@,mississippi-state,Mississippi State,24,L,24,31
+missouri,Oct 3 2026,,florida,Florida,8,W,45,17
+missouri,Oct 10 2026,,texas-am,Texas A&M,,W,27,6
+missouri,Oct 17 2026,@,ole-miss,Ole Miss,9,L,3,31
+missouri,Oct 31 2026,@,arkansas,Arkansas,,W,34,10
+missouri,Nov 7 2026,,texas,Texas,10,L,20,34
+missouri,Nov 14 2026,@,georgia,Georgia,1,L,21,48
+missouri,Nov 21 2026,,kentucky,Kentucky,17,W,28,14
+missouri,Nov 28 2026,,oklahoma,Oklahoma,19,,,

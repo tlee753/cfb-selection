@@ -1,26 +1,26 @@
-rank,slug,name,record
-1,georgia,Georgia,
-2,utah,Utah,
-3,alabama,Alabama,
-4,ucla,UCLA,
-5,notre-dame,Notre Dame,
-6,texas,Texas,
-7,miami-fl,Miami (FL),
-8,tennessee,Tennessee,
-9,indiana,Indiana,
-10,brigham-young,BYU,
-11,kentucky,Kentucky,
-12,texas-tech,Texas Tech,
-13,wake-forest,Wake Forest,
-14,houston,Houston,
-15,iowa,Iowa,
-16,oregon,Oregon,
-17,south-carolina,South Carolina,
-18,southern-california,USC,
-19,mississippi,Ole Miss,
-20,ohio-state,Ohio State,
-21,louisiana-state,LSU,
-22,missouri,Missouri,
-23,arizona,Arizona,
-24,boise-state,Boise State,
-25,oklahoma-state,Oklahoma State,
+Wk,Date,Rk,School,Prev,Chng,Conf,This Week
+12,2026-11-17,1,Georgia (9-1),1,,SEC,W 48-21 vs. #22 Missouri
+12,2026-11-17,2,Utah (10-0),2,,Big 12,W 40-39 vs. #23 Arizona
+12,2026-11-17,3,Alabama (8-2),3,,SEC,W 21-6 vs. Vanderbilt
+12,2026-11-17,4,UCLA (10-0),4,,Big Ten,W 22-14 vs. Illinois
+12,2026-11-17,5,Texas (8-2),6,1,SEC,W 22-21 vs. #21 LSU
+12,2026-11-17,6,Notre Dame (9-1),5,1,Ind,W 41-7 vs. Boston College
+12,2026-11-17,7,Miami (FL) (9-1),7,,ACC,W 36-25 vs. Duke
+12,2026-11-17,8,Indiana (9-1),9,1,Big Ten,W 27-13 vs. #18 USC
+12,2026-11-17,9,Tennessee (8-2),8,1,SEC,W 22-7 vs. Texas A&M
+12,2026-11-17,10,BYU (8-2),10,,Big 12,W 28-7 vs. Baylor
+12,2026-11-17,11,Wake Forest (9-1),13,2,ACC,W 49-7 vs. SMU
+12,2026-11-17,12,Texas Tech (9-1),12,,Big 12,W 52-27 vs. #25 Oklahoma State
+12,2026-11-17,13,Oregon (7-3),16,3,Big Ten,W 31-7 vs. Michigan
+12,2026-11-17,14,Ohio State (7-3),20,6,Big Ten,W 28-19 vs. Northwestern
+12,2026-11-17,15,Iowa (8-2),15,,Big Ten,W 28-7 vs. Purdue
+12,2026-11-17,16,Kentucky (7-3),11,5,SEC,L 14-21 vs. Florida
+12,2026-11-17,17,Boise State (9-1),24,7,Pac-12,W 46-41 vs. Oregon State
+12,2026-11-17,18,USC (7-3),18,,Big Ten,L 13-27 vs. #9 Indiana
+12,2026-11-17,19,Arizona (7-3),23,4,Big 12,L 39-40 vs. #2 Utah
+12,2026-11-17,20,Houston (7-3),14,6,Big 12,L 32-42 vs. Colorado
+12,2026-11-17,21,South Carolina (6-4),17,4,SEC,L 6-34 vs. Arkansas
+12,2026-11-17,22,Oklahoma (6-4),,,SEC,W 24-17 vs. #19 Ole Miss
+12,2026-11-17,23,Louisville (7-3),,,ACC,W 16-14 vs. North Carolina
+12,2026-11-17,24,Florida (6-4),,,SEC,W 21-14 vs. #11 Kentucky
+12,2026-11-17,25,Ole Miss (6-4),19,6,SEC,L 17-24 vs. Oklahoma

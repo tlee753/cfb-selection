@@ -1,8 +1,13 @@
 #![windows_subsystem = "windows"]
 
-use iced::widget::{button, column, container, row, scrollable, text, Column};
+use iced::keyboard::key::Named;
 use iced::theme::Palette;
-use iced::{Background, Border, Color, Element, Font, Length, Theme};
+use iced::widget::scrollable::{Direction, Scrollbar};
+use iced::widget::{Column, button, column, container, row, scrollable, text};
+use iced::{
+    Background, Border, Color, Element, Event, Font, Length, Padding, Subscription, Task, Theme,
+    event, keyboard, window,
+};
 use std::collections::HashMap;
 
 // ───────────────────────── Colors ─────────────────────────
@@ -10,6 +15,9 @@ use std::collections::HashMap;
 const GREEN: Color = Color::from_rgb(0.18, 0.63, 0.26);
 const RED: Color = Color::from_rgb(0.85, 0.21, 0.20);
 const BLUE: Color = Color::from_rgb(0.18, 0.51, 0.97);
+
+// Right-hand gutter reserved in the sidebar so the scrollbar never covers the buttons.
+const SCROLL_GUTTER: f32 = 20.0;
 
 // ───────────────────────── Data model ─────────────────────────
 
@@ -42,11 +50,11 @@ struct Team {
 }
 
 // ───────────────────────── Embedded data ─────────────────────────
-// Produced by `cargo run --features fetch --bin fetch_data`, baked into the binary.
+// Produced by `cargo run --bin build_games`, baked into the binary.
 
-const AP_CSV: &str = include_str!("../data/ap.csv");
-const CFP_CSV: &str = include_str!("../data/cfp.csv");
-const GAMES_CSV: &str = include_str!("../data/games.csv");
+const CFP_CSV: &str = include_str!("../data/1-cfp.csv");
+const AP_CSV: &str = include_str!("../data/2-ap.csv");
+const GAMES_CSV: &str = include_str!("../data/3-games.csv");
 
 fn read_csv(data: &str) -> Vec<csv::StringRecord> {
     csv::ReaderBuilder::new()
@@ -58,7 +66,7 @@ fn read_csv(data: &str) -> Vec<csv::StringRecord> {
 }
 
 fn load_schedules() -> HashMap<String, Vec<Game>> {
-    // games.csv: team,date,site,opp_slug,opp_name,opp_rank,result,score,opp_score
+    // 3-games.csv: team,date,site,opp_slug,opp_name,opp_rank,result,score,opp_score
     let mut schedules: HashMap<String, Vec<Game>> = HashMap::new();
     for rec in read_csv(GAMES_CSV) {
         let field = |i: usize| rec.get(i).unwrap_or("").trim();
@@ -76,12 +84,15 @@ fn load_schedules() -> HashMap<String, Vec<Game>> {
             score: field(7).to_string(),
             opp_score: field(8).to_string(),
         };
-        schedules.entry(field(0).to_string()).or_default().push(game);
+        schedules
+            .entry(field(0).to_string())
+            .or_default()
+            .push(game);
     }
     schedules
 }
 
-/// ap.csv / cfp.csv: rank,slug,name,record
+/// 1-cfp.csv / 2-ap.csv: rank,slug,name,record
 fn load_teams(csv: &str, schedules: &HashMap<String, Vec<Game>>) -> Vec<Team> {
     let mut teams: Vec<Team> = read_csv(csv)
         .iter()
@@ -105,8 +116,8 @@ fn load_teams(csv: &str, schedules: &HashMap<String, Vec<Game>>) -> Vec<Team> {
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 enum Poll {
-    Ap,
     Cfp,
+    Ap,
 }
 
 struct App {
@@ -122,7 +133,7 @@ impl Default for App {
         Self {
             ap: load_teams(AP_CSV, &schedules),
             cfp: load_teams(CFP_CSV, &schedules),
-            poll: Poll::Ap,
+            poll: Poll::Cfp,
             selected: 0, // #1 team
         }
     }
@@ -132,6 +143,28 @@ impl Default for App {
 enum Message {
     Select(usize),
     SetPoll(Poll),
+    Step(i32), // up/down arrow: move the selection by this many rows
+}
+
+fn rankings_id() -> iced::widget::Id {
+    iced::widget::Id::new("rankings")
+}
+
+/// Scroll the sidebar so the selected row is roughly in view. Rows are uniform height,
+/// so a proportional offset (first row = top, last row = bottom) is close enough.
+fn scroll_to_row(index: usize, len: usize) -> Task<Message> {
+    let y = if len > 1 {
+        index as f32 / (len - 1) as f32
+    } else {
+        0.0
+    };
+    iced::widget::operation::snap_to(
+        rankings_id(),
+        scrollable::RelativeOffset {
+            x: None,
+            y: Some(y),
+        },
+    )
 }
 
 impl App {
@@ -142,20 +175,39 @@ impl App {
         }
     }
 
-    fn update(&mut self, message: Message) {
+    fn update(&mut self, message: Message) -> Task<Message> {
         match message {
-            Message::Select(i) => self.selected = i,
+            Message::Select(i) => {
+                self.selected = i;
+                Task::none()
+            }
             Message::SetPoll(poll) => {
+                if self.poll == poll {
+                    return Task::none();
+                }
                 self.poll = poll;
                 self.selected = 0;
+                scroll_to_row(0, self.teams().len())
+            }
+            Message::Step(delta) => {
+                let len = self.teams().len();
+                if len == 0 {
+                    return Task::none();
+                }
+                self.selected = (self.selected as i32 + delta).clamp(0, len as i32 - 1) as usize;
+                scroll_to_row(self.selected, len)
             }
         }
+    }
+
+    fn subscription(&self) -> Subscription<Message> {
+        event::listen_with(handle_event)
     }
 
     fn view(&self) -> Element<'_, Message> {
         let teams = self.teams();
         let Some(selected) = teams.get(self.selected) else {
-            return container(text("No data yet. Run: cargo run --features fetch --bin fetch_data"))
+            return container(text("No data yet. Run: cargo run --bin build_games"))
                 .center(Length::Fill)
                 .into();
         };
@@ -168,7 +220,13 @@ impl App {
             .collect();
 
         // ── Left: top 25 ──
-        let mut rankings = Column::new().spacing(4).padding(8);
+        // Extra right padding leaves a gutter for the scrollbar so it doesn't cover the buttons.
+        let mut rankings = Column::new().spacing(4).padding(Padding {
+            top: 8.0,
+            bottom: 8.0,
+            left: 8.0,
+            right: SCROLL_GUTTER,
+        });
         for (i, team) in teams.iter().enumerate() {
             let is_selected = i == self.selected;
             let tint = if is_selected {
@@ -199,19 +257,37 @@ impl App {
 
         let poll_button = |label: &'static str, poll: Poll| {
             let active = self.poll == poll;
-            button(text(label).width(Length::Fill).align_x(iced::alignment::Horizontal::Center))
-                .width(Length::Fill)
-                .padding([8, 10])
-                .on_press(Message::SetPoll(poll))
-                .style(move |_theme, status| team_button_style(None, active, status))
+            button(
+                text(label)
+                    .width(Length::Fill)
+                    .align_x(iced::alignment::Horizontal::Center),
+            )
+            .width(Length::Fill)
+            .padding([8, 10])
+            .on_press(Message::SetPoll(poll))
+            .style(move |_theme, status| team_button_style(None, active, status))
         };
-        let toggle = row![poll_button("AP", Poll::Ap), poll_button("CFP", Poll::Cfp)]
+        // Same horizontal padding as the list so the toggle lines up with the team buttons.
+        let toggle = row![poll_button("CFP", Poll::Cfp), poll_button("AP", Poll::Ap)]
             .spacing(4)
-            .padding([8, 8]);
+            .padding(Padding {
+                top: 8.0,
+                bottom: 8.0,
+                left: 8.0,
+                right: SCROLL_GUTTER,
+            });
 
-        let sidebar = container(column![toggle, scrollable(rankings).height(Length::Fill)])
-            .width(320)
-            .height(Length::Fill);
+        let sidebar = container(column![
+            toggle,
+            scrollable(rankings)
+                .id(rankings_id())
+                .direction(Direction::Vertical(
+                    Scrollbar::new().width(8).scroller_width(8).margin(4),
+                ))
+                .height(Length::Fill)
+        ])
+        .width(320)
+        .height(Length::Fill);
 
         // ── Right: selected team's schedule ──
         let header = column![
@@ -286,11 +362,26 @@ fn team_button_style(tint: Option<Color>, selected: bool, status: button::Status
     let bump = if hovered { 0.15 } else { 0.0 };
 
     let (background, border_color, border_width) = if selected {
-        (Color::from_rgba(1.0, 1.0, 1.0, 0.18 + bump), Color::WHITE, 2.0)
+        (
+            Color::from_rgba(1.0, 1.0, 1.0, 0.18 + bump),
+            Color::WHITE,
+            2.0,
+        )
     } else if let Some(c) = tint {
-        (Color { a: 0.35 + bump, ..c }, c, 1.0)
+        (
+            Color {
+                a: 0.35 + bump,
+                ..c
+            },
+            c,
+            1.0,
+        )
     } else {
-        (Color::from_rgba(1.0, 1.0, 1.0, 0.04 + bump), Color::TRANSPARENT, 0.0)
+        (
+            Color::from_rgba(1.0, 1.0, 1.0, 0.04 + bump),
+            Color::TRANSPARENT,
+            0.0,
+        )
     };
 
     button::Style {
@@ -307,6 +398,20 @@ fn team_button_style(tint: Option<Color>, selected: bool, status: button::Status
 
 // ───────────────────────── Entry point ─────────────────────────
 
+/// Up/Down move through the list; Left/Right switch between CFP and AP.
+fn handle_event(event: Event, _status: event::Status, _window: window::Id) -> Option<Message> {
+    let Event::Keyboard(keyboard::Event::KeyPressed { key, .. }) = event else {
+        return None;
+    };
+    match key.as_ref() {
+        keyboard::Key::Named(Named::ArrowUp) => Some(Message::Step(-1)),
+        keyboard::Key::Named(Named::ArrowDown) => Some(Message::Step(1)),
+        keyboard::Key::Named(Named::ArrowLeft) => Some(Message::SetPoll(Poll::Cfp)),
+        keyboard::Key::Named(Named::ArrowRight) => Some(Message::SetPoll(Poll::Ap)),
+        _ => None,
+    }
+}
+
 fn black_theme() -> Theme {
     Theme::custom(
         "Black",
@@ -322,7 +427,8 @@ fn main() -> iced::Result {
         .title("CFB Selection")
         .font(include_bytes!("lexend.ttf").as_slice())
         .default_font(Font::with_name("Lexend"))
+        .subscription(App::subscription)
         .theme(|_: &App| black_theme())
-        .window_size((1000.0, 900.0))
+        .window_size((1000.0, 1200.0))
         .run()
 }

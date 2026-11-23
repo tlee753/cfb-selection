@@ -1,26 +1,26 @@
-rank,slug,name,record
-1,georgia,Georgia,
-2,utah,Utah,
-3,notre-dame,Notre Dame,
-4,ucla,UCLA,
-5,miami-fl,Miami (FL),
-6,indiana,Indiana,
-7,alabama,Alabama,
-8,texas,Texas,
-9,tennessee,Tennessee,
-10,texas-tech,Texas Tech,
-11,wake-forest,Wake Forest,
-12,brigham-young,BYU,
-13,kentucky,Kentucky,
-14,houston,Houston,
-15,southern-california,USC,
-16,iowa,Iowa,
-17,boise-state,Boise State,
-18,oregon,Oregon,
-19,mississippi,Ole Miss,
-20,south-carolina,South Carolina,
-21,ohio-state,Ohio State,
-22,arizona,Arizona,
-23,new-mexico,New Mexico,
-24,louisiana-state,LSU,
-25,southern-methodist,SMU,
+Wk,Date,Rk,School,Prev,Chng,1st,Conf,This Week
+13,2026-11-22,1,Georgia (10-1),1,,56,SEC,W 34-6 vs. South Carolina
+13,2026-11-22,2,Utah (11-0),2,,12,Big 12,W 38-17 vs. Texas Christian
+13,2026-11-22,3,Notre Dame (10-1),3,,1,Ind,W 24-3 vs. SMU
+13,2026-11-22,4,Miami (FL) (10-1),5,1,,ACC,W 28-20 vs. Virginia Tech
+13,2026-11-22,5,Texas (9-2),8,3,,SEC,W 45-3 vs. Arkansas
+13,2026-11-22,6,Alabama (9-2),7,1,,SEC,W 47-0 vs. Chattanooga
+13,2026-11-22,7,Tennessee (9-2),9,2,,SEC,W 27-13 vs. LSU
+13,2026-11-22,8,Wake Forest (10-1),10,2,,ACC,W 50-29 vs. Georgia Tech
+13,2026-11-22,9,Texas Tech (10-1),11,2,,Big 12,W 20-10 vs. Baylor
+13,2026-11-22,10,UCLA (10-1),4,6,,Big Ten,L 16-18 vs. Michigan
+13,2026-11-22,11,BYU (9-2),12,1,,Big 12,W 31-29 vs. Kansas
+13,2026-11-22,12,Indiana (9-2),6,6,,Big Ten,L 24-27 vs. Washington
+13,2026-11-22,13,Iowa (9-2),13,,,Big Ten,W 34-17 vs. Illinois
+13,2026-11-22,14,Oregon (8-3),14,,,Big Ten,W 45-7 vs. Michigan State
+13,2026-11-22,15,USC (8-3),18,3,,Big Ten,W 35-21 vs. Maryland
+13,2026-11-22,16,Arizona (8-3),19,3,,Big 12,W 35-28 vs. Kansas State
+13,2026-11-22,17,Houston (8-3),20,3,,Big 12,W 34-31 vs. West Virginia
+13,2026-11-22,18,Louisville (8-3),21,3,,ACC,W 42-10 vs. Pitt
+13,2026-11-22,19,Oklahoma (7-4),,,,SEC,W 28-7 vs. Texas A&M
+13,2026-11-22,20,Florida (7-4),23,3,,SEC,W 34-27 vs. Vanderbilt
+13,2026-11-22,21,Liberty (10-1),22,1,,CUSA,W 45-14 vs. Western Kentucky
+13,2026-11-22,22,Boise State (9-2),15,7,,Pac-12,L 20-22 vs. San Diego State
+13,2026-11-22,23,Ole Miss (7-4),25,2,,SEC,W 59-17 vs. Wofford
+13,2026-11-22,24,Missouri (7-4),,,,SEC,W 28-14 vs. #17 Kentucky
+13,2026-11-22,25,Ohio State (7-4),16,9,,Big Ten,L 28-31 vs. Nebraska
